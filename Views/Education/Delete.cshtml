@@ -1,0 +1,69 @@
+﻿@model ResumeGenerator.Models.Education
+
+@{
+    ViewData["Title"] = "Delete Education";
+}
+
+<h1>Delete Education</h1>
+
+<h3 class="text-danger">Are you sure you want to delete this education record?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.collageName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.collageName)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.degreeType)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.degreeType)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.startDate)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.startDate)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.endDate)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.endDate)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.major)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.major)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.gpa)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.gpa)
+        </dd>
+
+        <dt class="col-sm-3">
+            Resume ID
+        </dt>
+        <dd class="col-sm-9">
+            @(Model.resume != null ? Model.resume.resumeId.ToString() : "N/A")
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="educationId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>

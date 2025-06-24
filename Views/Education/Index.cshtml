@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ResumeGenerator.Models.Education>
+
+@{
+    ViewData["Title"] = "Education List";
+}
+
+<h1>Education List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">+ Add New Education</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.collageName)</th>
+            <th>@Html.DisplayNameFor(model => model.degreeType)</th>
+            <th>@Html.DisplayNameFor(model => model.startDate)</th>
+            <th>@Html.DisplayNameFor(model => model.endDate)</th>
+            <th>@Html.DisplayNameFor(model => model.major)</th>
+            <th>@Html.DisplayNameFor(model => model.gpa)</th>
+            <th>Resume ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.collageName)</td>
+                <td>@Html.DisplayFor(modelItem => item.degreeType)</td>
+                <td>@Html.DisplayFor(modelItem => item.startDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.endDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.major)</td>
+                <td>@Html.DisplayFor(modelItem => item.gpa)</td>
+                <td>@Html.DisplayFor(modelItem => item.resume.resumeId)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.educationId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.educationId" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.educationId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

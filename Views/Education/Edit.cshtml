@@ -1,0 +1,72 @@
+﻿@model ResumeGenerator.Models.Education
+
+@{
+    ViewData["Title"] = "Edit Education";
+}
+
+<h1>Edit Education</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @* Hidden ID field *@
+            <input type="hidden" asp-for="educationId" />
+
+            <div class="form-group">
+                <label asp-for="collageName" class="control-label"></label>
+                <input asp-for="collageName" class="form-control" />
+                <span asp-validation-for="collageName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="degreeType" class="control-label"></label>
+                <input asp-for="degreeType" class="form-control" />
+                <span asp-validation-for="degreeType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="startDate" class="control-label"></label>
+                <input asp-for="startDate" type="date" class="form-control" />
+                <span asp-validation-for="startDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="endDate" class="control-label"></label>
+                <input asp-for="endDate" type="date" class="form-control" />
+                <span asp-validation-for="endDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="major" class="control-label"></label>
+                <input asp-for="major" class="form-control" />
+                <span asp-validation-for="major" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="gpa" class="control-label"></label>
+                <input asp-for="gpa" class="form-control" />
+                <span asp-validation-for="gpa" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="resumeId" class="control-label"></label>
+                <select asp-for="resumeId" class="form-control" asp-items="ViewBag.resumeId"></select>
+                <span asp-validation-for="resumeId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary ml-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

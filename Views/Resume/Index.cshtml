@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ResumeGenerator.Models.Resume>
+
+@{
+    ViewData["Title"] = "Resumes List";
+}
+
+<h1>Resumes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New Resume</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.resumeId)</th>
+            <th>@Html.DisplayNameFor(model => model.firstName)</th>
+            <th>@Html.DisplayNameFor(model => model.lastName)</th>
+            <th>@Html.DisplayNameFor(model => model.email)</th>
+            <th>@Html.DisplayNameFor(model => model.phoneNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.createdDate)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.resumeId</td>
+                <td>@item.firstName</td>
+                <td>@item.lastName</td>
+                <td>@item.email</td>
+                <td>@item.phoneNumber</td>
+                @item.createdDate.("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.personalInfoId" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.personalInfoId" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.personalInfoId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

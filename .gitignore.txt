@@ -1,0 +1,18 @@
+﻿# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore OS junk files
+.DS_Store
+Thumbs.db
+
+# ASP.NET secrets
+secrets.json
+
+# Others
+*.log

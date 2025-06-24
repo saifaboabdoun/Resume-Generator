@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Career Launchpad</title>
+
+    <link href="/template/assets/css/tailwind.css" rel="stylesheet" />
+    <link href="/template/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Start of Layout Content -->
+    @RenderBody()
+    <!-- End of Layout Content -->
+
+    <script src="/template/assets/vendor/popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="/template/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/template/assets/js/argon-dashboard-tailwind.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
